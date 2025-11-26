@@ -14,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Rutas de autenticación (públicas)
+Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
+Route::post('/logout', [App\Http\Controllers\Api\AuthController::class, 'logout']);
+Route::post('/verify', [App\Http\Controllers\Api\AuthController::class, 'verify']);
+
+// Rutas protegidas
 Route::middleware('auth:api')->get('/user', [App\Http\Controllers\Api\UserController::class, 'show']);
